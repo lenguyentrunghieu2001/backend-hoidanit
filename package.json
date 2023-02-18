@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "dotenv": "16.0.3",
+    "ejs": "3.1.8",
+    "express": "4.18.2"
+  },
+  "scripts": {
+    "dev": "nodemon ./src/server.js"
+  },
+  "name": "udemy-fullstack-backend-zero",
+  "version": "1.0.0",
+  "description": "hoidanit",
+  "main": "src/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lenguyentrunghieu2001/udemy-fullstack-backend-zero.git"
+  },
+  "author": "hieu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lenguyentrunghieu2001/udemy-fullstack-backend-zero/issues"
+  },
+  "homepage": "https://github.com/lenguyentrunghieu2001/udemy-fullstack-backend-zero#readme",
+  "devDependencies": {
+    "nodemon": "2.0.20"
+  }
+}
