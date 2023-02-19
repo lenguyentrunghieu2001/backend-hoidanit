@@ -10,6 +10,7 @@ const hostname = process.env.HOST_NAME;
 configViewEngine(app);
 
 app.use("/", webRoutes);
+// app.use("/admin", webRoutes);
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port} ${hostname}`);
