@@ -9,8 +9,13 @@ const app = express();
 const port = process.env.PORT || 8080;
 const hostname = process.env.HOST_NAME;
 
+// config request body
 configReqBody(app);
+
+// config view engine
 configViewEngine(app);
+
+// config route group
 configRoute(app);
 
 app.listen(port, hostname, () => {
