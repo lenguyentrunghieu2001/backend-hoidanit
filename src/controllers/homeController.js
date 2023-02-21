@@ -8,7 +8,13 @@ const sample = (req, res) => {
   res.render("sample");
 };
 
+const postCreateUser = (req, res) => {
+  console.log(">>> req.body :", req.body);
+  res.send("Create User");
+};
+
 module.exports = {
   getHomepage,
   sample,
+  postCreateUser,
 };
