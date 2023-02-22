@@ -59,12 +59,16 @@
                 </td>
                 <td>
                     <button onclick="window.location.href='/update-user/<%=user.id%>'">Sửa</button>
-                    <button>Xóa</button>
+                    <button>
+                        <a href="/delete-user/<%=user.id%>"
+                            onclick="return confirm('Are you sure you want to delete?')">Xóa</a>
+                    </button>
                 </td>
             </tr>
             <% }); %>
 
     </table>
+
 </body>
 
 </html>

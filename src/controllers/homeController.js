@@ -4,6 +4,7 @@ const {
   addUser,
   getUserById,
   updateUser,
+  deleteUser,
 } = require("../services/CRUDServices");
 
 // trang danh sách
@@ -27,7 +28,7 @@ const postCreateUser = async (req, res) => {
 
 // trang show edit user
 const getUpdateUser = async (req, res) => {
-  let userId = req.params.id || 0;
+  let userId = req.params.id;
   // check có param không
   if (typeof userId == "undefined") {
     res.redirect("/error");
@@ -50,10 +51,24 @@ const postUpdateUser = async (req, res) => {
   res.redirect("/");
 };
 
+// delete a user
+const getDeleteUser = async (req, res) => {
+  let userId = req.params.id;
+  // check có param không
+  if (typeof userId == "undefined") {
+    return res.redirect("/error");
+  }
+
+  let result = await deleteUser(userId);
+
+  res.redirect("/");
+};
+
 module.exports = {
   getHomepage,
   getAddUserPage,
   postCreateUser,
   getUpdateUser,
   postUpdateUser,
+  getDeleteUser,
 };
