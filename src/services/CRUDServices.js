@@ -17,4 +17,23 @@ const addUser = async (email, name, city) => {
   return result;
 };
 
-module.exports = { getAllUsers, addUser };
+// lấy ra 1 user
+const getUserById = async (id) => {
+  let [result, fields] = await connection.query(
+    `SELECT * FROM Users WHERE id=? limit 1`,
+    id
+  );
+  let user = result && result.length > 0 ? result[0] : {};
+  return user;
+};
+
+const updateUser = async (array) => {
+  let [result, fields] = await connection.query(
+    `UPDATE Users
+    SET email = ?, name = ?, city= ?
+    WHERE id = ?;`,
+    array
+  );
+};
+
+module.exports = { getAllUsers, addUser, getUserById, updateUser };
