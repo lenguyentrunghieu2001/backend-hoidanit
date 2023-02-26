@@ -4,7 +4,7 @@ const express = require("express");
 const configViewEngine = require("./config/viewEngine");
 const configRoute = require("./config/routeGroup");
 const configReqBody = require("./config/reqBody");
-
+const connect = require("./config/database");
 const app = express();
 const port = process.env.PORT || 8080;
 const hostname = process.env.HOST_NAME;
@@ -18,6 +18,10 @@ configViewEngine(app);
 // config route group
 configRoute(app);
 
-app.listen(port, hostname, () => {
-  console.log(`Example app listening on port ${port} ${hostname}`);
-});
+(async () => {
+  await connect();
+
+  app.listen(port, hostname, () => {
+    console.log(`Example app listening on port ${port} ${hostname}`);
+  });
+})();
