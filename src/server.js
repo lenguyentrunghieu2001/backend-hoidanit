@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const express = require("express");
 const configViewEngine = require("./config/viewEngine");
 const configRoute = require("./config/routeGroup");
@@ -19,9 +18,11 @@ configViewEngine(app);
 configRoute(app);
 
 (async () => {
-  await connect();
+  try {
+    await connect();
 
-  app.listen(port, hostname, () => {
-    console.log(`Example app listening on port ${port} ${hostname}`);
-  });
+    app.listen(port, hostname, () => {
+      console.log(`Example app listening on port ${port} ${hostname}`);
+    });
+  } catch (error) {}
 })();

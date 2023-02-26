@@ -1,4 +1,3 @@
-const connection = require("../config/database");
 const {
   getAllUsers,
   addUser,
@@ -21,8 +20,7 @@ const getAddUserPage = (req, res) => {
 // trang lưu người dùng vào db
 const postCreateUser = async (req, res) => {
   let { email, name, city } = req.body;
-  let result = await addUser(email, name, city);
-  console.log(result);
+  await addUser(email, name, city);
   res.send("create user success");
 };
 
@@ -46,8 +44,7 @@ const getUpdateUser = async (req, res) => {
 // trang update user db
 const postUpdateUser = async (req, res) => {
   let { id, email, name, city } = req.body;
-  let array = [email, name, city, id];
-  let update = await updateUser(array);
+  await updateUser(id, email, name, city);
   res.redirect("/");
 };
 
